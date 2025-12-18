@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT-501 OS Scheduler Simulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero-content {
+            background: rgba(255,255,255,0.1);
+            padding: 60px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 800px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15,15,35,0.95); backdrop-filter: blur(10px); z-index: 1030;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#" style="color: #00ffff;">
+                <span class="me-2" style="font-size: 1.5rem;">⚙️💻</span>MIT-501 OS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="web_mlq/simulate.html">Simulate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="web_mlq/help.html">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="display-3 fw-bold mb-4">🚀 Process Scheduler Simulator</h1>
+            <p class="lead mb-4">J. Reyes and O. Maravilla</p>
+            <p class="lead mb-4">Master Multi-Level Queue (MLQ) and Multi-Level Feedback Queue (MLFQ) scheduling algorithms with interactive simulations</p>
+            <a href="web_mlq/simulate.html" class="btn-primary-custom">Start Simulation</a>
+        </div>
+    </section>
+<hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card h-40">
+                    <h3>📊 Multi-Level Queue (MLQ)</h3>
+                    <p>Simulate fixed-priority scheduling with multiple queues. Each queue uses different algorithms like FCFS, SJF, Priority, or Round Robin.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Fixed queue assignments</li>
+                        <li>✅ Multiple scheduling algorithms</li>
+                        <li>✅ Priority-based execution</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card h-40">
+                    <h3>🔄 Multi-Level Feedback Queue (MLFQ)</h3>
+                    <p>Experience dynamic priority scheduling where processes move between queues based on their behavior and execution patterns.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Dynamic queue movement</li>
+                        <li>✅ Feedback-based priority</li>
+                        <li>✅ Adaptive scheduling</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card h-40">
+                    <h3>⚙️ Customizable Parameters</h3>
+                    <p>Configure arrival times, burst times, priorities, and time quantums for realistic simulations and comprehensive analysis.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Flexible process configuration</li>
+                        <li>✅ Real-time parameter adjustment</li>
+                        <li>✅ Multiple simulation scenarios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="feature-card h-40">
+                    <h3>📈 Real-time Visualization</h3>
+                    <p>Interactive Gantt charts with color-coded processes and shadow effects for better understanding of scheduling behavior.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Color-coded process blocks</li>
+                        <li>✅ Interactive Gantt charts</li>
+                        <li>✅ Shadow effects for depth</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card h-40">
+                    <h3>📋 Detailed Analytics</h3>
+                    <p>Calculate turnaround time, waiting time, and CPU utilization with comprehensive statistics and performance metrics.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Turnaround time calculation</li>
+                        <li>✅ Waiting time analysis</li>
+                        <li>✅ CPU utilization metrics</li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-card h-50">
+                    <h3>📈 Real-time Visualization</h3>
+                    <p>Interactive Gantt charts with color-coded processes and shadow effects for better understanding of scheduling behavior.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Color-coded process blocks</li>
+                        <li>✅ Interactive Gantt charts</li>
+                        <li>✅ Shadow effects for depth</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card h-50">
+                    <h3>📋 Detailed Analytics</h3>
+                    <p>Calculate turnaround time, waiting time, and CPU utilization with comprehensive statistics and performance metrics.</p>
+                    <ul class="list-unstyled">
+                        <li>✅ Turnaround time calculation</li>
+                        <li>✅ Waiting time analysis</li>
+                        <li>✅ CPU utilization metrics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center py-4" style="background: rgba(15,15,35,0.9); color: white;">
+        <p>&copy; 1st Semester 2025 - 2026 MIT-501 Operating Systems Course. LSPU-SCC. Educational Simulation Tool.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
